@@ -1,0 +1,36 @@
+#!/bin/bash
+echo "----------Here is the hardware information----------"
+echo
+#echo "Dispaly message in kernel ring buffer"
+#dmesg
+echo
+echo "Display CPU"
+cat /proc/cpuinfo
+echo
+echo "Display Memory info"
+cat /proc/meminfo
+echo
+echo "Display free and memory info"
+free -h
+echo
+echo "Display  PCI"
+sudo lspci
+echo
+echo "Display USB Device"
+sudo lsusb
+echo
+echo "Dispaly DMI/SMBIOS"
+sudo dmidecode
+echo
+echo "show info about disk sda"
+sudo hdparm -i /dev/sda
+echo
+echo "Perform a read speed test on sda"
+sudo hdparm -tT /dev/sda
+echo 
+echo "test unreadable block on disk sda"
+sudo badblocks -s /dev/sda
+echo
+echo "Display CPU info ,mem, storage"
+lshw
+
